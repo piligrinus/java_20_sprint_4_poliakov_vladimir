@@ -30,8 +30,6 @@ public class OrderPage {
     private By inputDataDeliveryField = xpath(".//input[@placeholder='* Когда привезти самокат']"); // локатор поля выбора даты аренды
     private By inputDurationOfRentField = By.className("Dropdown-arrow"); // локатор поля выбора длительности аренды
     private By inputCommentCourier = xpath(".//input[@placeholder='Комментарий для курьера']"); // локатор поля "Комментарий"
-    private By lowerOrderButton = xpath("/html/body/div/div/div[2]/div[3]/button[2]"); // локатор нижней кнопки "Заказать"
-    private By upperOrderButton = xpath("/html/body/div/div/div[1]/div[2]/button[1]"); // локатор верхней кнопки "Заказать"
     private By approvalOrderAria = By.className("Order_ModalHeader__3FDaJ"); // локатор заголовка "Хотите оформить заказ?"
     private By successfullyOrderMessage = By.xpath(".//div[text()='Заказ оформлен']"); // локатор сообщения "Заказ оформлен"
     private By approvalOrderButton = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]"); // локатор кнопки подтверждения оформления заказа
@@ -85,12 +83,8 @@ public class OrderPage {
         webDriver.findElement(inputCommentCourier).sendKeys(comment);
         return this;
     }
-    public OrderPage checkLowerOrderButton(){
-        webDriver.findElement(lowerOrderButton).click();
-        return this;
-    }
-    public OrderPage checkUpperOrderButton(){
-        webDriver.findElement(upperOrderButton).click();
+    public OrderPage clickOrderButton(String buttonPath){
+        webDriver.findElement(xpath(buttonPath)).click();
         return this;
     }
 
